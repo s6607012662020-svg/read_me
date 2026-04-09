@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.yoga-page {
+    min-height: 100vh;
+    background: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    color: #1A1714;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ── HERO ── */
+
+.yoga-hero {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2DDD8;
+    padding: 64px 48px 56px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.yoga-hero-left {
+    flex: 1;
+    max-width: 560px;
+}
+
+.yoga-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A89F98;
+    margin-bottom: 14px;
+}
+
+.yoga-hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 0.95;
+    color: #1A1714;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+.yoga-hero-desc {
+    font-size: 0.88rem;
+    color: #6B6560;
+    line-height: 1.75;
+    max-width: 400px;
+}
+
+.yoga-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+}
+
+.yoga-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+}
+
+.yoga-meta-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: #1A1714;
+    line-height: 1;
+}
+
+.yoga-meta-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #A89F98;
+}
+
+.yoga-meta-divider {
+    width: 1px;
+    height: 36px;
+    background: #E2DDD8;
+}
+
+
+/* ── BODY ── */
+
+.yoga-body {
+    padding: 48px 48px 64px;
+    max-width: 1100px;
+}
+
+
+/* ── SECTION LABEL ── */
+
+.yoga-section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.yoga-section-label span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A89F98;
+}
+
+.yoga-section-line {
+    flex: 1;
+    height: 1px;
+    background: #E2DDD8;
+}
+
+
+/* ── POSTURE GRID ── */
+
+.yoga-postures {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1px;
+    background: #E2DDD8;
+    border: 1px solid #E2DDD8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.yoga-posture-card {
+    background: #FFFFFF;
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: background 0.18s;
+    cursor: default;
+    position: relative;
+}
+
+.yoga-posture-card:hover {
+    background: #FDFCFA;
+}
+
+.yoga-posture-card:hover .yoga-card-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+.yoga-card-index {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #C8C0B8;
+    margin-bottom: 20px;
+}
+
+.yoga-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    line-height: 1;
+}
+
+.yoga-posture-card h3 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #1A1714;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.yoga-posture-card p {
+    font-size: 0.78rem;
+    color: #6B6560;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.yoga-card-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: #F7F5F2;
+    color: #A89F98;
+    border: 1px solid #E2DDD8;
+    margin-top: 16px;
+    width: fit-content;
+}
+
+.yoga-card-arrow {
+    position: absolute;
+    top: 28px;
+    right: 24px;
+    font-size: 0.85rem;
+    color: #C8C0B8;
+    opacity: 0;
+    transition: opacity 0.18s, transform 0.18s;
+}
+
+
+/* ── BENEFITS STRIP ── */
+
+.yoga-benefits {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.yoga-benefit {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD8;
+    border-radius: 10px;
+    padding: 20px 22px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+}
+
+.yoga-benefit:hover {
+    border-color: #1A1714;
+}
+
+.yoga-benefit-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.yoga-benefit-text h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1A1714;
+    margin-bottom: 4px;
+}
+
+.yoga-benefit-text p {
+    font-size: 0.74rem;
+    color: #A89F98;
+    line-height: 1.6;
+}
+
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 768px) {
+    .yoga-hero {
+        flex-direction: column;
+        padding: 40px 20px 36px;
+        align-items: flex-start;
+    }
+    .yoga-hero-meta {
+        align-self: flex-start;
+    }
+    .yoga-body {
+        padding: 32px 20px 48px;
+    }
+    .yoga-benefits {
+        grid-template-columns: 1fr;
+    }
+}

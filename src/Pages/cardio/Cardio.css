@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cardio-page {
+    min-height: 100vh;
+    background: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    color: #1A1714;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ── HERO ── */
+
+.cardio-hero {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2DDD8;
+    padding: 64px 48px 56px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.cardio-hero-left {
+    flex: 1;
+    max-width: 560px;
+}
+
+.cardio-eyebrow {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A89F98;
+    margin-bottom: 14px;
+}
+
+.cardio-hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 0.95;
+    color: #1A1714;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+}
+
+.cardio-hero-desc {
+    font-size: 0.88rem;
+    color: #6B6560;
+    line-height: 1.75;
+    max-width: 400px;
+}
+
+.cardio-hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-shrink: 0;
+}
+
+.cardio-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+}
+
+.cardio-meta-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: #1A1714;
+    line-height: 1;
+}
+
+.cardio-meta-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #A89F98;
+}
+
+.cardio-meta-divider {
+    width: 1px;
+    height: 36px;
+    background: #E2DDD8;
+}
+
+
+/* ── BODY ── */
+
+.cardio-body {
+    padding: 48px 48px 64px;
+    max-width: 1100px;
+}
+
+
+/* ── SECTION LABEL ── */
+
+.cardio-section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.cardio-section-label span {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A89F98;
+}
+
+.cardio-section-line {
+    flex: 1;
+    height: 1px;
+    background: #E2DDD8;
+}
+
+
+/* ── WORKOUTS GRID — 2 cols wide cards ── */
+
+.cardio-workouts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.cardio-workout-card {
+    background: #FFFFFF;
+    border: 1px solid #E2DDD8;
+    border-radius: 12px;
+    padding: 28px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: border-color 0.18s, transform 0.18s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.cardio-workout-card:hover {
+    border-color: #1A1714;
+    transform: translateY(-2px);
+}
+
+.cardio-workout-card:hover .cardio-card-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+
+/* Intensity bar — top accent */
+
+.cardio-card-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #E2DDD8;
+}
+
+.cardio-card-bar.high {
+    background: #C0392B;
+}
+
+.cardio-card-bar.medium {
+    background: #E67E22;
+}
+
+.cardio-card-bar.low {
+    background: #2E7D32;
+}
+
+.cardio-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cardio-card-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.cardio-card-index {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #C8C0B8;
+}
+
+.cardio-workout-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1A1714;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.cardio-workout-card p {
+    font-size: 0.78rem;
+    color: #6B6560;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.cardio-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cardio-card-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: #F7F5F2;
+    color: #A89F98;
+    border: 1px solid #E2DDD8;
+}
+
+.cardio-card-intensity {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.cardio-card-intensity.high {
+    color: #C0392B;
+}
+
+.cardio-card-intensity.medium {
+    color: #E67E22;
+}
+
+.cardio-card-intensity.low {
+    color: #2E7D32;
+}
+
+.cardio-card-arrow {
+    position: absolute;
+    bottom: 28px;
+    right: 24px;
+    font-size: 0.85rem;
+    color: #C8C0B8;
+    opacity: 0;
+    transition: opacity 0.18s, transform 0.18s;
+}
+
+
+/* ── TIPS ROW ── */
+
+.cardio-tips {
+    margin-top: 40px;
+    background: #FFFFFF;
+    border: 1px solid #E2DDD8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cardio-tips-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #E2DDD8;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardio-tips-header span {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #A89F98;
+}
+
+.cardio-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #E2DDD8;
+}
+
+.cardio-tip {
+    background: #FFFFFF;
+    padding: 20px 22px;
+    transition: background 0.15s;
+}
+
+.cardio-tip:hover {
+    background: #FDFCFA;
+}
+
+.cardio-tip-icon {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.cardio-tip h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #1A1714;
+    margin-bottom: 5px;
+}
+
+.cardio-tip p {
+    font-size: 0.72rem;
+    color: #A89F98;
+    line-height: 1.6;
+}
+
+
+/* ── RESPONSIVE ── */
+
+@media (max-width: 768px) {
+    .cardio-hero {
+        flex-direction: column;
+        padding: 40px 20px 36px;
+        align-items: flex-start;
+    }
+    .cardio-hero-meta {
+        align-self: flex-start;
+    }
+    .cardio-body {
+        padding: 32px 20px 48px;
+    }
+    .cardio-workouts {
+        grid-template-columns: 1fr;
+    }
+    .cardio-tips-grid {
+        grid-template-columns: 1fr;
+    }
+}

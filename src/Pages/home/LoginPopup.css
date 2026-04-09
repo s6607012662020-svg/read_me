@@ -1,0 +1,510 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap');
+.lp-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lp-backdrop--visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lp-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    background: rgba(12, 12, 16, 0.93);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: translateY(-105%);
+    transition: transform 0.44s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+}
+
+.lp-panel--open {
+    transform: translateY(0);
+}
+
+.lp-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(247, 245, 242, 0.45);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.lp-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #F7F5F2;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.lp-inner {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    min-height: 300px;
+}
+
+.lp-brand {
+    background: rgba(255, 255, 255, 0.03);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 44px 40px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.lp-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.lp-brand-icon {
+    width: 30px;
+    height: 30px;
+    background: #F7F5F2;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+}
+
+.lp-brand-icon span {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #0d0d0f;
+}
+
+.lp-brand-name {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #F7F5F2;
+}
+
+.lp-brand-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.95;
+    color: #F7F5F2;
+    margin-bottom: 10px;
+}
+
+.lp-brand-sub {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(247, 245, 242, 0.55);
+    line-height: 1.7;
+    max-width: 220px;
+    margin-bottom: 22px;
+}
+
+.lp-brand-stats {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.lp-brand-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lp-brand-stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #F7F5F2;
+    line-height: 1;
+}
+
+.lp-brand-stat-label {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+}
+
+.lp-brand-stat-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.lp-deco {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    opacity: 0.08;
+}
+
+.lp-deco-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #F7F5F2;
+}
+
+.lp-deco-ring--1 {
+    width: 150px;
+    height: 150px;
+    top: 30px;
+    left: 30px;
+}
+
+.lp-deco-ring--2 {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+}
+
+.lp-deco-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: #F7F5F2;
+}
+
+.lp-deco-dot--1 {
+    width: 6px;
+    height: 6px;
+    top: 32px;
+    left: 100px;
+}
+
+.lp-deco-dot--2 {
+    width: 4px;
+    height: 4px;
+    top: 90px;
+    left: 32px;
+    opacity: 0.6;
+}
+
+.lp-deco-dot--3 {
+    width: 8px;
+    height: 8px;
+    top: 135px;
+    left: 72px;
+    opacity: 0.4;
+}
+
+.lp-form-side {
+    padding: 32px 44px;
+    display: flex;
+    flex-direction: column;
+    animation: lpFadeUp 0.38s 0.08s ease both;
+}
+
+@keyframes lpFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lp-form-header {
+    margin-bottom: 18px;
+}
+
+.lp-eyebrow {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+    margin-bottom: 5px;
+}
+
+.lp-form-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #F7F5F2;
+}
+
+.lp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.lp-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lp-label {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+}
+
+.lp-forgot {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(247, 245, 242, 0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.lp-forgot:hover {
+    color: #F7F5F2;
+}
+
+.lp-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.lp-input-icon {
+    position: absolute;
+    left: 12px;
+    color: rgba(247, 245, 242, 0.25);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.lp-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+    color: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.84rem;
+    transition: all 0.2s;
+}
+
+.lp-input::placeholder {
+    color: rgba(247, 245, 242, 0.25);
+}
+
+.lp-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.lp-input--padded-right {
+    padding-right: 38px;
+}
+
+.lp-eye {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: rgba(247, 245, 242, 0.35);
+    cursor: pointer;
+    font-size: 0.82rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.lp-eye:hover {
+    color: #F7F5F2;
+    background: transparent;
+}
+
+.lp-btn-primary {
+    width: 100%;
+    padding: 11px 24px;
+    background: #F7F5F2;
+    color: #0d0d0f;
+    border: 1px solid #F7F5F2;
+    border-radius: 7px;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 2px;
+}
+
+.lp-btn-primary:hover {
+    background: #ddd;
+    border-color: #ddd;
+}
+
+.lp-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.7rem;
+    font-family: 'Geist', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.lp-divider::before,
+.lp-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.lp-divider span {
+    color: rgba(247, 245, 242, 0.25);
+    white-space: nowrap;
+}
+
+.lp-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.lp-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+    color: rgba(247, 245, 242, 0.6);
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lp-social-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #F7F5F2;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.lp-switch {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(247, 245, 242, 0.35);
+    text-align: center;
+}
+
+.lp-switch-link {
+    background: transparent;
+    border: none;
+    color: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.lp-switch-link:hover {
+    color: #ddd;
+    background: transparent;
+}
+
+.lp-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    gap: 8px;
+    padding: 20px;
+    animation: lpFadeUp 0.3s ease both;
+}
+
+.lp-success-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #F7F5F2;
+    color: #0d0d0f;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.lp-success h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #F7F5F2;
+}
+
+.lp-success p {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(247, 245, 242, 0.55);
+}
+
+@media(max-width:768px) {
+    .lp-inner {
+        grid-template-columns: 1fr;
+    }
+    .lp-brand {
+        display: none;
+    }
+    .lp-form-side {
+        padding: 24px 20px 28px;
+    }
+}

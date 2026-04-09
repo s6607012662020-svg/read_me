@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap');
+.sp-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 23, 20, 0.4);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.sp-backdrop--visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.sp-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    background: rgba(12, 12, 16, 0.93);
+    border-bottom: 1px solid #E2DDD8;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 20px 60px rgba(26, 23, 20, 0.12), 0 2px 8px rgba(26, 23, 20, 0.06);
+    transform: translateY(-105%);
+    transition: transform 0.44s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.sp-panel--open {
+    transform: translateY(0);
+}
+
+.sp-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: rgba(247, 245, 242, 0.35);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+.sp-close:hover {
+    background: #F7F5F2;
+    color: #0d0d0f;
+    border-color: #F7F5F2;
+}
+
+
+/* INNER */
+
+.sp-inner {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    min-height: 300px;
+}
+
+
+/* BRAND */
+
+.sp-brand {
+    background: rgba(255, 255, 255, 0.03);
+    border-right: 1px solid #E2DDD8;
+    padding: 44px 40px 44px 44px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sp-brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.sp-brand-icon {
+    width: 30px;
+    height: 30px;
+    background: #F7F5F2;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+}
+
+.sp-brand-icon span {
+    font-family: 'Instrument Serif', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #0d0d0f;
+}
+
+.sp-brand-name {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #F7F5F2;
+}
+
+.sp-brand-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: #F7F5F2;
+    margin-bottom: 10px;
+}
+
+.sp-brand-sub {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(247, 245, 242, 0.55);
+    line-height: 1.7;
+    max-width: 220px;
+    margin-bottom: 22px;
+}
+
+
+/* Stats */
+
+.sp-brand-stats {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sp-brand-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sp-brand-stat-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #F7F5F2;
+    line-height: 1;
+}
+
+.sp-brand-stat-label {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+}
+
+.sp-brand-stat-divider {
+    width: 1px;
+    height: 28px;
+    background: #E2DDD8;
+}
+
+
+/* Deco */
+
+.sp-deco {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    pointer-events: none;
+    opacity: 0.06;
+}
+
+.sp-deco-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid #1A1714;
+}
+
+.sp-deco-ring--1 {
+    width: 150px;
+    height: 150px;
+    top: 30px;
+    left: 30px;
+}
+
+.sp-deco-ring--2 {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+}
+
+.sp-deco-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: #F7F5F2;
+}
+
+.sp-deco-dot--1 {
+    width: 6px;
+    height: 6px;
+    top: 32px;
+    left: 100px;
+    opacity: 1;
+}
+
+.sp-deco-dot--2 {
+    width: 4px;
+    height: 4px;
+    top: 90px;
+    left: 32px;
+    opacity: 0.6;
+}
+
+.sp-deco-dot--3 {
+    width: 8px;
+    height: 8px;
+    top: 135px;
+    left: 72px;
+    opacity: 0.4;
+}
+
+
+/* FORM SIDE */
+
+.sp-form-side {
+    padding: 32px 44px;
+    display: flex;
+    flex-direction: column;
+    animation: spFadeUp 0.38s 0.08s ease both;
+}
+
+@keyframes spFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sp-form-header {
+    margin-bottom: 18px;
+}
+
+.sp-eyebrow {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+    margin-bottom: 5px;
+}
+
+.sp-form-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #F7F5F2;
+}
+
+.sp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.sp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.sp-label {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(247, 245, 242, 0.35);
+}
+
+.sp-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.sp-input-icon {
+    position: absolute;
+    left: 12px;
+    color: rgba(247, 245, 242, 0.25);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.sp-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+    color: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.84rem;
+    transition: all 0.2s;
+}
+
+.sp-input::placeholder {
+    color: rgba(247, 245, 242, 0.25);
+}
+
+.sp-input:focus {
+    outline: none;
+    border-color: #F7F5F2;
+    background: rgba(12, 12, 16, 0.93);
+    box-shadow: 0 0 0 3px rgba(26, 23, 20, 0.06);
+}
+
+.sp-input--padded-right {
+    padding-right: 38px;
+}
+
+.sp-eye {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: rgba(247, 245, 242, 0.35);
+    cursor: pointer;
+    font-size: 0.82rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.sp-eye:hover {
+    color: #F7F5F2;
+    background: transparent;
+}
+
+.sp-btn-primary {
+    width: 100%;
+    padding: 11px 24px;
+    background: #F7F5F2;
+    color: #0d0d0f;
+    border: 1px solid #1A1714;
+    border-radius: 7px;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 2px;
+    letter-spacing: 0.01em;
+}
+
+.sp-btn-primary:hover {
+    background: #ddd;
+    border-color: #ddd;
+}
+
+.sp-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #E2DDD8;
+    font-size: 0.7rem;
+    font-family: 'Geist', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.sp-divider::before,
+.sp-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #E2DDD8;
+}
+
+.sp-divider span {
+    color: rgba(247, 245, 242, 0.25);
+    white-space: nowrap;
+}
+
+.sp-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.sp-social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 9px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 7px;
+    color: rgba(247, 245, 242, 0.55);
+    font-family: 'Geist', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sp-social-btn:hover {
+    border-color: #F7F5F2;
+    color: #F7F5F2;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.sp-terms {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(247, 245, 242, 0.35);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.sp-terms a {
+    color: rgba(247, 245, 242, 0.55);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.sp-terms a:hover {
+    color: #F7F5F2;
+}
+
+.sp-switch {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(247, 245, 242, 0.35);
+    text-align: center;
+}
+
+.sp-switch-link {
+    background: transparent;
+    border: none;
+    color: #F7F5F2;
+    font-family: 'Geist', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.2s;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.sp-switch-link:hover {
+    color: #333;
+    background: transparent;
+}
+
+.sp-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    gap: 8px;
+    padding: 20px;
+    animation: spFadeUp 0.3s ease both;
+}
+
+.sp-success-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #F7F5F2;
+    color: #0d0d0f;
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.sp-success h3 {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #F7F5F2;
+}
+
+.sp-success p {
+    font-family: 'Geist', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(247, 245, 242, 0.55);
+}
+
+@media (max-width: 768px) {
+    .sp-inner {
+        grid-template-columns: 1fr;
+    }
+    .sp-brand {
+        display: none;
+    }
+    .sp-form-side {
+        padding: 24px 20px 28px;
+    }
+    .sp-row {
+        grid-template-columns: 1fr;
+    }
+    .sp-social {
+        grid-template-columns: 1fr 1fr;
+    }
+}
